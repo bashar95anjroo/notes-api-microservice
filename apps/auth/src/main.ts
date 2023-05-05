@@ -29,7 +29,7 @@ async function bootstrap() {
     }
   }, 99);
   const rmqService = app.get<RmqService>(RmqService);
-  // app.connectMicroservice<RmqOptions>(rmqService.getOptions('AUTH', true));
+  app.connectMicroservice<RmqOptions>(rmqService.getOptions('AUTH', true));
   app.useGlobalPipes(new ValidationPipe());
   const configService = app.get(ConfigService);
   await app.startAllMicroservices();
